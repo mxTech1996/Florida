@@ -18,11 +18,10 @@ export default function Home() {
   const router = useRouter();
   const { dataSite } = useInformation();
 
-  console.log(dataSite);
   return (
     <main
       style={{
-        backgroundColor: '#DEF8EBFF',
+        backgroundColor: '#F0EFEFFF',
       }}
     >
       <Navbar />
@@ -53,10 +52,10 @@ export default function Home() {
                 Know Us
               </Typography.Title>
               <Missions
-                textColor='#fff'
+                textColor='#000'
                 data={dataSite.info}
-                gridColumns={1}
-                variant='text'
+                gridColumns={3}
+                variant='card'
               />
             </div>
           }
@@ -67,24 +66,27 @@ export default function Home() {
           <Typography.Title level={3} className='font-medium mb-10 text-center'>
             Our Services
           </Typography.Title>
-          <Features
-            gridColumns={2}
-            variant='card'
-            features={dataSite.services}
+          <FeaturesV2
+            gridColumns={3}
+            version='v2'
+            variant='card-with-image'
+            features={dataSite.services.map((item) => {
+              return { title: item.title, src: item.image };
+            })}
           />
         </div>
-        <div id='courses'>
+        <div id='services'>
           {dataSite.products.length > 1 && (
             <ProductSection
               withCategoryFilter={false}
-              title='All Courses'
-              gridColumns={4}
-              variant='grid'
+              title='All Services'
+              gridColumns={2}
+              variant='carousel'
               productItemVariant='vertical'
               onClickImage={(id) => {
                 router.push(`/product/${id}`);
               }}
-              productVersion='2'
+              productVersion='3'
               carouselOptions={{
                 arrowColor: 'black',
                 fade: true,
@@ -111,10 +113,10 @@ export default function Home() {
               direction: 'horizontal',
             }}
             variantItem='card'
-            variant='grid'
-            backgroundColor='#CFE5BAFF'
+            variant='carousel'
+            backgroundColor='#D2D2D2FF'
             references={dataSite.references}
-            gridColumns={3}
+            gridColumns={1}
             titleAlign='center'
           />
         </div>

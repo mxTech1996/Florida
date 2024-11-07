@@ -1,5 +1,5 @@
-export const pageName = 'AKWC';
-export const primaryColor = '#000000';
+export const pageName = 'Florida';
+export const primaryColor = '#939191FF';
 export const backgroundColor = '#FFFFFF';
 export const makeClearBackground = (color) => {
   return {
@@ -9,8 +9,8 @@ export const makeClearBackground = (color) => {
 
 export const navData = [
   {
-    href: '/#courses',
-    label: 'Our Course',
+    href: '/#services',
+    label: 'All Services',
   },
   {
     href: '/#our-services',
